@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="jar-curso-jsp">
+    <output-path>$USER_HOME$/Desktop/Curso JAVA</output-path>
+    <root id="archive" name="jar-curso-jsp.jar">
+      <element id="module-output" name="curso-jsp" />
+      <element id="artifact" artifact-name="curso-jsp:war exploded" />
+    </root>
+  </artifact>
+</component>
