@@ -42,7 +42,7 @@
                                                 <div class="col-md-10">
                                                     <div class="card">
                                                         <div class="card-header">
-                                                            <h5>Relatório de Usuário</h5>
+                                                            <h5>Gráfico de Cargos</h5>
                                                             <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
                                                         </div>
 
@@ -98,6 +98,7 @@
             </div>
         </div>
     </div>
+   </div>
     
     <jsp:include page="javascriptfile.jsp"></jsp:include>
 

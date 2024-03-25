@@ -36,7 +36,81 @@
                                     <div class="page-body">
                                         <div class="row">
                                             
-                                            <h1>Conteúdo principal</h1>
+                                            <div class="col-xl-3 col-md-6">
+                                            <div class="card">
+                                                <div class="card-block">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-8">
+                                                            <h4 class="text-c-purple">Cadastro de Usuários</h4>
+                                                        </div>
+                                                        <div class="col-4 text-right">
+                                                            <i class="fa fa-calendar-check-o f-28"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer bg-c-purple">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-9">
+                                                            <a href="<%= request.getContextPath() %>/ServletUsuarioController?acao=listarUser" class="button-cards">Cadastrar</a>
+                                                        </div>
+                                                        <div class="col-3 text-right">
+                                                            <i class="fa fa-calendar-check-o f-16"></i>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="card">
+                                                <div class="card-block">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-8">
+                                                            <h4 class="text-c-green">Relatório de Usuários</h4>
+                                                        </div>
+                                                        <div class="col-4 text-right">
+                                                            <i class="fa fa-file-text-o f-28"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer bg-c-green">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-9">
+                                                            <a href="<%=request.getContextPath()%>/principal/relUser.jsp" class="button-cards">Gerar relatório de usuários</a>
+                                                        </div>
+                                                        <div class="col-3 text-right">
+                                                            <i class="fa fa-file-text-o f-16"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="card">
+                                                <div class="card-block">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-8">
+                                                            <h4 class="text-c-red">Gráfico de Cargos</h4>
+                                                        </div>
+                                                        <div class="col-4 text-right">
+                                                            <i class="fa fa-bar-chart f-28"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer bg-c-red">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-9">
+                                                            <a href="" class="button-cards">Gerar gráfico de cargos</a>
+                                                        </div>
+                                                        <div class="col-3 text-right">
+                                                            <i class="fa fa-bar-chart-o f-16"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                             
                                     </div>
                                     <!-- Page-body end -->
@@ -49,6 +123,7 @@
             </div>
         </div>
     </div>
+   </div>
     
     <jsp:include page="javascriptfile.jsp"></jsp:include>
     

@@ -1,159 +1,163 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    
+
 <!DOCTYPE html>
 <html lang="en">
 
 <jsp:include page="head.jsp"></jsp:include>
 
-  <body>
-  
-  <jsp:include page="theme-loader.jsp"></jsp:include>
-  
-  <!-- Pre-loader end -->
-  <div id="pcoded" class="pcoded">
-      <div class="pcoded-overlay-box"></div>
-      <div class="pcoded-container navbar-wrapper">
-          
-          <jsp:include page="navbar.jsp"></jsp:include>
+<body>
 
-          <div class="pcoded-main-container">
-              <div class="pcoded-wrapper">
-                  
-                  <jsp:include page="navbarmainmenu.jsp"></jsp:include>
-                  
-                  <div class="pcoded-content">
-                      <!-- Page-header start -->
-                      
-                      <jsp:include page="page-head.jsp"></jsp:include>
-                      
-                      <!-- Page-header end -->
-                        <div class="pcoded-inner-content">
-                            <!-- Main-body start -->
-                            <div class="main-body">
-                                <div class="page-wrapper">
-                                    <!-- Page-body start -->
-                                    <div class="page-body">
+	<jsp:include page="theme-loader.jsp"></jsp:include>
 
-                                        <div class="page-body">
-                                            <div class="row">
-                                                <div class="col-md-10">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h5>Relatório de Usuário</h5>
-                                                            <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
-                                                        </div>
+	<!-- Pre-loader end -->
+	<div id="pcoded" class="pcoded">
+		<div class="pcoded-overlay-box"></div>
+		<div class="pcoded-container navbar-wrapper">
 
-                                                        <form class="form-material"
-                                                              action="<%=request.getContextPath()%>/ServletUsuarioController"
-                                                              method="get" id="formUser">
-                                                            <input type="hidden" id="acaoRelatorioImprimirTipo" name="acao" value="imprimirRelatorioUser">
+			<jsp:include page="navbar.jsp"></jsp:include>
 
-                                                            <div class="form-row align-items-center" style="margin-top: 20px">
+			<div class="pcoded-main-container">
+				<div class="pcoded-wrapper">
 
-                                                                <div class="col-sm-3" style="margin-left: 10px">
-                                                                    <label class="sr-only" for="dataInicial">Data Inicial:</label>
-                                                                    <input value="${dataInicial}" type="date" class="form-control" id="dataInicial" name="dataInicial">
-                                                                </div>
+					<jsp:include page="navbarmainmenu.jsp"></jsp:include>
 
-                                                                <div class="col-sm-3">
-                                                                    <label class="sr-only" for="dataFinal">Data Final</label>
-                                                                        <input value="${dataFinal}" type="date" class="form-control" id="dataFinal" name="dataFinal">
-                                                                </div>
+					<div class="pcoded-content">
+						<!-- Page-header start -->
 
-                                                                <div class="col-auto">
-                                                                    <button type="button" onclick="imprimirHtml();" class="btn btn-primary">Exibir Relatório</button>
-                                                                </div>
+						<jsp:include page="page-head.jsp"></jsp:include>
 
-                                                                <div class="col-auto">
-                                                                    <button type="button" onclick="imprimirPDF();" class="btn btn-primary">Imprimir PDF</button>
-                                                                </div>
+						<!-- Page-header end -->
+						<div class="pcoded-inner-content">
+							<!-- Main-body start -->
+							<div class="main-body">
+								<div class="page-wrapper">
+									<!-- Page-body start -->
+									<div class="page-body">
 
-                                                                <div class="col-auto">
-                                                                    <button type="button" onclick="imprimirExcel();" class="btn btn-primary">Imprimir Excel</button>
-                                                                </div>
-                                                            </div>
+										<div class="page-body">
+											<div class="row">
+												<div class="col-md-10">
+													<div class="card">
+														<div class="card-header">
+															<h5>Relatório de Usuário</h5>
+															<!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
+														</div>
 
-                                                        </form>
+														<form class="form-material"
+															action="<%=request.getContextPath()%>/ServletUsuarioController"
+															method="get" id="formUser">
+															<input type="hidden" id="acaoRelatorioImprimirTipo"
+																name="acao" value="imprimirRelatorioUser">
 
-                                                        <div style="height: 300px; overflow: scroll;">
-                                                            <table class="table" id="tabelaResultadosview">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th scope="col">ID:</th>
-                                                                    <th scope="col">Nome:</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                <c:forEach items="${listaUser}" var="ml">
+															<div class="form-row align-items-center"
+																style="margin-top: 20px">
 
-                                                                    <tr>
+																<div class="col-sm-3" style="margin-left: 10px">
+																	<label class="sr-only" for="dataInicial">Data
+																		Inicial:</label> <input value="${dataInicial}" type="date"
+																		class="form-control" id="dataInicial"
+																		name="dataInicial">
+																</div>
 
-                                                                        <td><c:out value="${ml.id}"></c:out></td>
-                                                                        <td><c:out value="${ml.nome}"></c:out></td>
-                                                                    </tr>
+																<div class="col-sm-3">
+																	<label class="sr-only" for="dataFinal">Data
+																		Final</label> <input value="${dataFinal}" type="date"
+																		class="form-control" id="dataFinal" name="dataFinal">
+																</div>
 
-                                                                    <c:forEach items="${ml.telefones}" var="fone">
-                                                                        <tr>
-                                                                            <td  style="font-size: 10px;">Telefone:</td>
-                                                                            <td style="font-size: 10px;"><c:out value="${fone.numero}"></c:out></td>
-                                                                        </tr>
-                                                                    </c:forEach>
+																<div class="col-auto">
+																	<button type="button" onclick="imprimirHtml();"
+																		class="btn btn-primary">Exibir Relatório</button>
+																</div>
 
-                                                                </c:forEach>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+																<div class="col-auto">
+																	<button type="button" onclick="imprimirPDF();"
+																		class="btn btn-primary">Imprimir PDF</button>
+																</div>
 
-                                                        <div class="card-block">
+																<div class="col-auto">
+																	<button type="button" onclick="imprimirExcel();"
+																		class="btn btn-primary">Imprimir Excel</button>
+																</div>
+															</div>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+														</form>
 
-                                    <!-- Page-body end -->
-                                </div>
-                                <div id="styleSelector"> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <jsp:include page="javascriptfile.jsp"></jsp:include>
+														<div style="height: 300px; overflow: scroll;">
+															<table class="table" id="tabelaResultadosview">
+																<thead>
+																	<tr>
+																		<th scope="col">ID:</th>
+																		<th scope="col">Nome:</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<c:forEach items="${listaUser}" var="ml">
 
-      <script type="text/javascript">
+																		<tr>
 
-          function imprimirHtml() {
-              document.getElementById("acaoRelatorioImprimirTipo").value = 'imprimirRelatorioUser';
+																			<td><c:out value="${ml.id}"></c:out></td>
+																			<td><c:out value="${ml.nome}"></c:out></td>
+																		</tr>
 
-              $("#formUser").submit();
-          }
+																		<c:forEach items="${ml.telefones}" var="fone">
+																			<tr>
+																				<td style="font-size: 10px;">Telefone:</td>
+																				<td style="font-size: 10px;"><c:out
+																						value="${fone.numero}"></c:out></td>
+																			</tr>
+																		</c:forEach>
 
-          function imprimirPDF() {
-              document.getElementById("acaoRelatorioImprimirTipo").value = 'imprimirRelatorioPDF';
+																	</c:forEach>
+																</tbody>
+															</table>
+														</div>
 
-              $("#formUser").submit();
-              return false;
-          }
+														<div class="card-block"></div>
+													</div>
+												</div>
+											</div>
+										</div>
 
-          function imprimirExcel() {
-              document.getElementById("acaoRelatorioImprimirTipo").value = 'imprimirRelatorioExcel';
+										<!-- Page-body end -->
+									</div>
+									<div id="styleSelector"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-              $("#formUser").submit();
-              return false;
-          }
+	<jsp:include page="javascriptfile.jsp"></jsp:include>
 
+	<script type="text/javascript">
+		function imprimirHtml() {
+			document.getElementById("acaoRelatorioImprimirTipo").value = 'imprimirRelatorioUser';
 
-      </script>
-    
+			$("#formUser").submit();
+		}
+
+		function imprimirPDF() {
+			document.getElementById("acaoRelatorioImprimirTipo").value = 'imprimirRelatorioPDF';
+
+			$("#formUser").submit();
+			return false;
+		}
+
+		function imprimirExcel() {
+			document.getElementById("acaoRelatorioImprimirTipo").value = 'imprimirRelatorioExcel';
+
+			$("#formUser").submit();
+			return false;
+		}
+	</script>
+
 </body>
 
 </html>
-    
