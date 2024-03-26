@@ -36,6 +36,9 @@
 	href="assets/icon/font-awesome/css/font-awesome.min.css">
 <!-- Style.css -->
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<link rel="stylesheet" type="text/css"
+	href="assets/pages/notification/notification.css">
 </head>
 
 <body themebg-pattern="theme1">
@@ -127,6 +130,15 @@
 										required="required"> <span class="form-bar"></span> <label
 										class="float-label">Senha</label>
 								</div>
+								
+								<div class="alert-danger" role="alert"
+									id="alertMsg" style="display: none;">
+									<button type="button" class="close" data-dismiss="alert"
+										aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								
 								<div class="row m-t-25 text-left">
 									<div class="col-12">
 										<div class="checkbox-fade fade-in-primary d-">
@@ -137,7 +149,8 @@
 											</label>
 										</div>
 										<div class="links-container">
-											<div class="forgot-phone text-right f-right" style="clear: both">
+											<div class="forgot-phone text-right f-right"
+												style="clear: both">
 												<a href="#" class="text-right f-w-600">Esqueceu a senha?</a>
 											</div>
 										</div>
@@ -148,7 +161,9 @@
 									<div class="col-md-12">
 										<input type="submit" value="Acessar"
 											class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">
-											
+
+
+
 										<input type="button" id="btnCadastrar" value="Cadastrar"
 											class="btn btn-primary1 btn-md btn-block waves-effect waves-light text-center m-b-20">
 									</div>
@@ -168,24 +183,40 @@
 							</div>
 						</div>
 					</form>
-					
-					<script>
-    // Manipula o evento de clique do botão de cadastro
-    document.getElementById("btnCadastrar").addEventListener("click", function() {
-        // Redireciona o usuário para a página desejada
-        window.location.href = "CadastroUsuario.jsp";
-    });
-</script>
-					
-					<h5>${msg}</h5>
-					<!-- end of form -->
+
+
 				</div>
-				<!-- end of col-sm-12 -->
+
+
 			</div>
-			<!-- end of row -->
+
+			<!-- end of form -->
 		</div>
-		<!-- end of container-fluid -->
+		<!-- end of col-sm-12 -->
 	</section>
+
+	<script type="text/javascript">
+		var msg = "${msg}";
+
+		if (msg.trim() !== "") {
+
+			var alertMsg = document.getElementById("alertMsg");
+
+			alertMsg.textContent = msg;
+
+			alertMsg.style.display = "block";
+		}
+	</script>
+
+
+
+	<script>
+		document.getElementById("btnCadastrar").addEventListener("click",
+				function() {
+
+					window.location.href = "CadastroUsuario.jsp";
+				});
+	</script>
 
 	<script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript"
@@ -211,6 +242,7 @@
 	<script type="text/javascript"
 		src="bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
 	<script type="text/javascript" src="assets/js/common-pages.js"></script>
+
 </body>
 
 </html>

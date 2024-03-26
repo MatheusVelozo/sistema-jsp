@@ -102,7 +102,7 @@
                                                 <div class="card-footer bg-c-red">
                                                     <div class="row align-items-center">
                                                         <div class="col-9">
-                                                            <a href="" class="button-cards">Gerar gráfico de cargos</a>
+                                                            <a href="<%=request.getContextPath()%>/principal/relUserGrafico.jsp" class="button-cards">Gerar gráfico de cargos</a>
                                                         </div>
                                                         <div class="col-3 text-right">
                                                             <i class="fa fa-bar-chart-o f-16"></i>
